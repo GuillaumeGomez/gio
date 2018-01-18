@@ -11,20 +11,49 @@ generate = [
     "Gio.ActionMap",
     "Gio.AppInfo",
     "Gio.AppInfoCreateFlags",
+    "Gio.AppInfoMonitor",
     "Gio.AppLaunchContext",
     "Gio.ApplicationFlags",
+    "Gio.ApplicationCommandLine",
     "Gio.AskPasswordFlags",
+    "Gio.AsyncResult",
     "Gio.BufferedOutputStream",
     "Gio.Cancellable",
+    "Gio.CharsetConverter",
+    "Gio.ConverterFlags",
+    "Gio.ConverterResult",
+    "Gio.ConverterInputStream",
+    "Gio.ConverterOutputStream",
+    "Gio.Credentials",
     "Gio.DataOutputStream",
     "Gio.DataStreamByteOrder",
     "Gio.DataStreamNewlineType",
+    "Gio.DBusActionGroup",
+    #"Gio.DBusAnnotationInfo",
+    #"Gio.DBusArgInfo",
+    "Gio.DBusAuthObserver",
+    "Gio.DBusMessageByteOrder",
+    "Gio.DBusCallFlags",
+    "Gio.DBusCapabilityFlags",
+    "Gio.DBusConnectionFlags",
+    "Gio.DBusInterfaceInfo",
+    "Gio.DBusMessageFlags",
+    "Gio.DBusMessageHeaderField",
+    "Gio.DBusMessageType",
+    "Gio.DBusSendMessageFlags",
+    "Gio.DBusServer",
+    "Gio.DBusServerFlags",
+    "Gio.DesktopAppInfoLookup",
+    "Gio.Drive",
     "Gio.FileCreateFlags",
     "Gio.FileInfo",
     "Gio.FileQueryInfoFlags",
     "Gio.FileType",
     "Gio.Icon",
+    "Gio.Initable",
+    #"Gio.InputMessage",
     "Gio.IOStreamSpliceFlags",
+    #"Gio.LoadableIcon",
     "Gio.Menu",
     "Gio.MenuAttributeIter",
     "Gio.MenuItem",
@@ -33,11 +62,16 @@ generate = [
     "Gio.MountOperation",
     "Gio.MountOperationResult",
     "Gio.NotificationPriority",
+    #"Gio.OutputMessage",
     "Gio.OutputStreamSpliceFlags",
     "Gio.PasswordSave",
     "Gio.Permission",
+    "Gio.PollableInputStream",
+    "Gio.PollableOutputStream",
+    "Gio.RemoteActionGroup",
     "Gio.ResourceError",
     "Gio.ResourceLookupFlags",
+    "Gio.Seekable",
     "Gio.SettingsBindFlags",
     "Gio.SettingsSchema",
     "Gio.SimpleActionGroup",
@@ -45,6 +79,7 @@ generate = [
     "Gio.ThemedIcon",
     "Gio.TlsCertificate",
     "Gio.TlsCertificateFlags",
+    "Gio.Volume",
 ]
 
 ignore = [
@@ -107,6 +142,32 @@ status = "generate"
     [[object.function]]
     name = "read_line"
     #return vec of u8
+    ignore = true
+
+[[object]]
+name = "Gio.DBusConnection"
+status = "generate"
+    [[object.function]]
+    name = "send_message"
+    # uses glib.Volatile type
+    ignore = true
+    [[object.function]]
+    name = "send_message_with_reply_sync"
+    # uses glib.Volatile type
+    ignore = true
+
+[[object]]
+name = "Gio.DBusMessage"
+status = "generate"
+    [[object.function]]
+    name = "get_header_fields"
+    ignore = true
+
+[[object]]
+name = "Gio.DesktopAppInfo"
+status = "generate"
+    [[object.function]]
+    name = "search"
     ignore = true
 
 [[object]]
